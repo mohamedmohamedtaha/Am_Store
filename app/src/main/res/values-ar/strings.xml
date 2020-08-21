@@ -19,14 +19,14 @@
     <string name="title_empty_view_daily_movements" translatable="false">" قم أولاً بإضافة الأصناف والمخازن والأذونات"</string>
     <string name="title_empty_view_daily_movements1" translatable="false">حتى تتمكن من إضافة الحركات اليومية</string>
     <string name="title_empty_view_store" translatable="false">ابدأ بإضافة المخازن</string>
-    <string name="title_empty_view_permission" translatable="false">ابدأ بإضافة انواع الإذونات</string>
+    <string name="title_empty_view_color">ابدأ بإضافة الألوان</string>
     <string name="title_empty_view_category" translatable="false">"ابدأ بإضافة الأصناف "</string>
     <string name="title_empty_view_stoke_wearehouse" translatable="false">" حتى تستطيع ترصيد المستودع  "</string>
     <string name="add_category" translatable="false">إضافة الأصناف</string>
     <string name="add_store" translatable="false">إضافة المخازن</string>
     <string name="add_store_convert" translatable="false">إضافة المخازن المحولة</string>
     <string name="title_add_category" translatable="false">إضافة الأصناف</string>
-    <string name="add_permission" translatable="false">إضافة الإذن</string>
+    <string name="add_colors" >إضافة الألوان</string>
     <string name="empty_view_title_text" translatable="false">It\'s a bit lonely here...</string>
     <string name="empty_view_subtitle_text" translatable="false">Get started by adding a Category</string>
     <string name="name_category" translatable="false">"اسم الصنف "</string>
@@ -41,7 +41,7 @@
     <string name="searchBy">"ابحث بـ "</string>
     <string name="BtAdd">"إضافة "</string>
     <string name="BTDelete">"حذف "</string>
-    <string name="action_edit" translatable="false">تعديل</string>
+    <string name="action_edit" >تعديل</string>
     <string name="add_store_titile" translatable="false">إضافة مخزن</string>
     <string name="update_store_titile" translatable="false">تعديل مخزن</string>
     <string name="error_save_store" translatable="false">"  لم يتم حفظ المخزن "</string>
@@ -50,15 +50,15 @@
     <string name="update_store" translatable="false">"  تم تعديل المخزن بنجاح "</string>
     <string name="error_delete_store" translatable="false">"  لم يتم حذف المخزن "</string>
     <string name="delete_store" translatable="false">"  تم حذف المخزن بنجاح "</string>
-    <string name="add_permission_titile" translatable="false">إضافة أذن</string>
-    <string name="update_permission_titile" translatable="false">تعديل أذن</string>
-    <string name="type_permission" translatable="false">" نوع الأذن"</string>
-    <string name="error_save_permission" translatable="false">"  لم يتم حفظ الأذن "</string>
-    <string name="save_permission" translatable="false">"  تم حفظ الأذن بنجاح "</string>
-    <string name="error_update_permission" translatable="false">"  لم يتم تعديل الأذن "</string>
-    <string name="update_permission" translatable="false">"  تم تعديل الأذن بنجاح "</string>
-    <string name="error_delete_permission" translatable="false">"  لم يتم حذف الأذن "</string>
-    <string name="delete_permission" translatable="false">"  تم حذف الأذن بنجاح "</string>
+    <string name="add_color_titile" >إضافة لون</string>
+    <string name="update_color_titile">تعديل اللون</string>
+    <string name="type_color" > اسم اللون</string>
+    <string name="error_save_color" >  لم يتم حفظ اللون </string>
+    <string name="save_color" >  تم حفظ اللون بنجاح </string>
+    <string name="error_update_color">  لم يتم تعديل اللون </string>
+    <string name="update_color">  تم تعديل اللون بنجاح</string>
+    <string name="error_delete_color" > لم يتم حذف اللون </string>
+    <string name="delete_color" >  تم حذف اللون بنجاح </string>
     <string name="first_balance" translatable="false">"الرصيد الأول "</string>
     <string name="add_stoke_titile" translatable="false">"إضافة ترصيد المستودع "</string>
     <string name="error_first_balance" translatable="false">"يجب اختيار الرصيد الأول "</string>
@@ -90,7 +90,7 @@
     <string name="delete_daily">" تم مسح الحركة بنجاح "</string>
     <string name="error_empty_text">"لا يمكن ترك الحقل فارغ أو تكون قمته 0 "</string>
     <string name="error_exist_name">"تم تسجيل اسم المخزن من قبل "</string>
-    <string name="error_exist_permission">"تم تسجيل اسم الإذن من قبل "</string>
+    <string name="error_exist_color">"تم تسجيل هذا اللون من قبل "</string>
     <string name="error_exist_category">"تم تسجيل اسم الصنف من قبل "</string>
     <string name="this_store_used">هذا المخزن مستخدم ولا يمكن مسحه</string>
     <string name="this_store_not_updated">هذا المخزن مستخدم ولا يمكن تعديله</string>

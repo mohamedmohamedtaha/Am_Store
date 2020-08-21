@@ -26,7 +26,7 @@ import com.imagine.mohamedtaha.store.R;
 import com.imagine.mohamedtaha.store.adapter.AdapterAddStokeHouse;
 import com.imagine.mohamedtaha.store.data.ItemsStore;
 import com.imagine.mohamedtaha.store.data.TaskDbHelper;
-import com.imagine.mohamedtaha.store.fragments.EditStockingWarehouseFragment;
+import com.imagine.mohamedtaha.store.ui.fragments.EditStockingWarehouseFragment;
 import com.imagine.mohamedtaha.store.loaders.LoaderStokeWearehouse;
 
 import java.util.ArrayList;

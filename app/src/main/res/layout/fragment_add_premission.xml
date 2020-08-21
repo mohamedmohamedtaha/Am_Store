@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.imagine.mohamedtaha.store.fragments.AddPremissionFragment">
+    tools:context=".ui.fragments.AddColorsFragment">
 
     <ListView
         android:id="@+id/listViewAddPermission"
@@ -31,7 +31,7 @@
             android:id="@+id/empty_subtitle_text"
             style="@style/EmptyViewTextViewSecond"
             android:layout_below="@+id/empty_text_first"
-            android:text="@string/title_empty_view_permission"
+            android:text="@string/title_empty_view_color"
            />
 
 

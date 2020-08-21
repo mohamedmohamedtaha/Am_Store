@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.imagine.mohamedtaha.store.R;
-import com.imagine.mohamedtaha.store.fragments.AddPremissionFragment;
-import com.imagine.mohamedtaha.store.fragments.AddStoreFragment;
-import com.imagine.mohamedtaha.store.fragments.Add_Category_Fragment_ContentProvider;
+import com.imagine.mohamedtaha.store.ui.fragments.AddColorsFragment;
+import com.imagine.mohamedtaha.store.ui.fragments.AddStoresFragment;
+import com.imagine.mohamedtaha.store.ui.fragments.AddCategoriesFragment;
 
 /**
  * Created by MANASATT on 25/11/17.
@@ -27,12 +27,12 @@ public class CategoryAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0){
-            return new Add_Category_Fragment_ContentProvider();
+            return new AddCategoriesFragment();
         }else if (position == 1){
-            return new AddStoreFragment();
+            return new AddStoresFragment();
         }else
         {
-            return new AddPremissionFragment();
+            return new AddColorsFragment();
         }
     }
 
@@ -48,7 +48,7 @@ public class CategoryAdapter extends FragmentPagerAdapter {
         }else if (position == 1){
             return mContext.getString(R.string.add_store);
         }else {
-            return mContext.getString(R.string.add_permission);
+            return mContext.getString(R.string.add_colors);
 
         }
     }

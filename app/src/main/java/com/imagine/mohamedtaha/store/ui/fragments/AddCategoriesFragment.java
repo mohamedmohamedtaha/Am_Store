@@ -1,4 +1,4 @@
-package com.imagine.mohamedtaha.store.fragments;
+package com.imagine.mohamedtaha.store.ui.fragments;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -19,13 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.imagine.mohamedtaha.store.adapter.AdapterAddCategoryContentProvider;
 import com.imagine.mohamedtaha.store.R;
-import com.imagine.mohamedtaha.store.data.ItemsStore;
 import com.imagine.mohamedtaha.store.data.TaskContract.TaskEntry;
 
-import java.util.List;
 
-
-public class Add_Category_Fragment_ContentProvider extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+public class AddCategoriesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
     // TODO: Rename parameter arguments, choose names that match
     FloatingActionButton fabAddCategory;
     RecyclerView mRecycleView;
@@ -36,7 +33,7 @@ public class Add_Category_Fragment_ContentProvider extends Fragment implements L
    //Identifier for the category dataloader;
     private static final int CATEGORY_LOADER = 0;
 
-    public Add_Category_Fragment_ContentProvider() {
+    public AddCategoriesFragment() {
         // Required empty public constructor
     }
 
@@ -79,7 +76,7 @@ View view;
                 intent.setData(currentCategoryUri);
                 startActivity(intent);*/
                 long id = cursor.getLong(cursor.getColumnIndex(TaskEntry._ID));
-                TestFragmentContentProvider f = TestFragmentContentProvider.newInstance(id);
+                FragmentContentProvider f = FragmentContentProvider.newInstance(id);
                 f.show(getFragmentManager(),"dialog");
 
             }
@@ -115,7 +112,7 @@ View view;
         fabAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new TestFragmentContentProvider().show(getFragmentManager(),"dialog");
+                new FragmentContentProvider().show(getFragmentManager(),"dialog");
            //     Intent intent = new Intent(getActivity(), EditCategory.class);
              //   startActivity(intent);
 

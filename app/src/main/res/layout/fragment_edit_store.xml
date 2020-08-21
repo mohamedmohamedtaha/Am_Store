@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/icons"
-    tools:context="com.imagine.mohamedtaha.store.fragments.EditStoreFragment">
+    tools:context=".ui.fragments.EditStoreFragment">
 
     <RelativeLayout
         android:id="@+id/layout_titile"

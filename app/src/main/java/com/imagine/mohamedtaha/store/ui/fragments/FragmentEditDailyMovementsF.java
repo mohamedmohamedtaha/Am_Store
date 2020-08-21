@@ -1,4 +1,4 @@
-package com.imagine.mohamedtaha.store.fragments;
+package com.imagine.mohamedtaha.store.ui.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -35,7 +35,7 @@ import static com.imagine.mohamedtaha.store.ui.activity.MainActivity.NAME_PERMIS
 import static com.imagine.mohamedtaha.store.ui.activity.MainActivity.TYPE_STORE_DAILY;
 
 
-public class EditDailyMovementsFragment extends DialogFragment implements DialogInterface.OnClickListener {
+public class FragmentEditDailyMovementsF extends DialogFragment implements DialogInterface.OnClickListener {
     private EditText ETIssued,ETIncoming;
     private TextView TVTitleStokeWearhouse,ETCurentBalance,TVShowText;
     private Button BTDeleteDailyMovement, BTAddDailyMovement;

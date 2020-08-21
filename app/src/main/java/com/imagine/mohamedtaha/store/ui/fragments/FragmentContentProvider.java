@@ -1,4 +1,4 @@
-package com.imagine.mohamedtaha.store.fragments;
+package com.imagine.mohamedtaha.store.ui.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class TestFragmentContentProvider extends DialogFragment implements DialogInterface.OnClickListener{
+public class FragmentContentProvider extends DialogFragment implements DialogInterface.OnClickListener{
     private static final String EXTRA_ID = "id";
     EditText ETCategoryName,ETNaturalCategory,EtNotesFF;
     private TextView TVTitleCategory;
@@ -40,13 +40,13 @@ public class TestFragmentContentProvider extends DialogFragment implements Dialo
 
 
     long id;
-    public static TestFragmentContentProvider newInstance(long id){
+    public static FragmentContentProvider newInstance(long id){
         Bundle bundle = new Bundle();
         bundle.putLong(EXTRA_ID,id);
 
-        TestFragmentContentProvider testFragmentContentProvider = new TestFragmentContentProvider();
-        testFragmentContentProvider.setArguments(bundle);
-        return testFragmentContentProvider;
+        FragmentContentProvider fragmentContentProvider = new FragmentContentProvider();
+        fragmentContentProvider.setArguments(bundle);
+        return fragmentContentProvider;
     }
 
     @NonNull

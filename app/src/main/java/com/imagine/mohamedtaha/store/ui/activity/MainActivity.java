@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.os.Handler;
+import android.os.Message;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 
@@ -17,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -32,8 +35,10 @@ import com.imagine.mohamedtaha.store.adapter.AdapterAddDailyMovements;
 import com.imagine.mohamedtaha.store.data.BackupData;
 import com.imagine.mohamedtaha.store.data.ItemsStore;
 import com.imagine.mohamedtaha.store.data.TaskDbHelper;
-import com.imagine.mohamedtaha.store.fragments.EditDailyMovementsFragment;
-//import com.imagine.mohamedtaha.store.fragments.EditStoreFragment;
+import com.imagine.mohamedtaha.store.threading.Constants;
+import com.imagine.mohamedtaha.store.threading.MyThread;
+import com.imagine.mohamedtaha.store.ui.fragments.FragmentEditDailyMovementsF;
+//import com.imagine.mohamedtaha.store.ui.fragments.EditStoreFragment;
 import com.imagine.mohamedtaha.store.informationInrto.TapTarget;
 import com.imagine.mohamedtaha.store.informationInrto.TapTargetSequence;
 import com.imagine.mohamedtaha.store.informationInrto.TapTargetView;
@@ -45,14 +50,17 @@ import java.util.Collections;
 import tourguide.tourguide.TourGuide;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<ItemsStore>>
-        , SearchView.OnQueryTextListener,BackupData.OnBackupListener {
+        , SearchView.OnQueryTextListener,BackupData.OnBackupListener, Handler.Callback {
     private static final int Daily_LOADER = 4;
+    private static final String TAG = "MyThread";
     TaskDbHelper dbHelper ;
     ArrayList<ItemsStore>itemsDaily = new ArrayList<>();
     private ProgressBar progressBarDaily;
     //private AdapterAddDailyMovements adapterAddDailyMovements;
 
     private AdapterAddDailyMovements adapterAddDailyMovements;
+    private MyThread myThread = null;
+    private Handler mainHandler = null;
 
     private RecyclerView recyclerViewDailyMovements;
     public static final String IDDaily = "id";
@@ -82,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainHandler = new Handler(this);
 
      /*   if (!showInformation){
             showInformation();
@@ -115,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 bundle.putInt(INCOMING_DAILY, itemsStore.getIncoming());
                 bundle.putInt(ISSUED_DAILY, itemsStore.getIssued());
                 bundle.putString(CONVERT_TO_DAILY, itemsStore.getConvertTo());
-                EditDailyMovementsFragment f = new EditDailyMovementsFragment();
+                FragmentEditDailyMovementsF f = new FragmentEditDailyMovementsF();
                 f.setArguments(bundle);
                 f.show(getSupportFragmentManager(),DIALOG_DALIY_MOVEMENTS);
      }
@@ -130,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new EditDailyMovementsFragment().show(getSupportFragmentManager(),DIALOG_DALIY_MOVEMENTS);
+                new FragmentEditDailyMovementsF().show(getSupportFragmentManager(),DIALOG_DALIY_MOVEMENTS);
             }
         });
 
@@ -408,10 +417,48 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onResume() {
         super.onResume();
       //  updateListNote();
-
+        sendTestMessage();
+    }
+    private void sendTestMessage(){
+        Log.d(TAG," sendTestMessage : saving word on thread: " + Thread.currentThread().getName());
+        Message message = Message.obtain(null, Constants.WORD_RETRIEVE);
+        myThread.sendMessageToBackgroundThread(message);
     }
 
-    /**
+    @Override
+    protected void onStart() {
+        super.onStart();
+        myThread = new MyThread(this,mainHandler);
+        myThread.start();
+    }
+
+    @Override
+    public boolean handleMessage(@NonNull Message msg) {
+        switch (msg.what){
+            case Constants.WORD_RETRIEVE_SUCCESS:
+                Log.d(TAG," handleMessage : WORD_RETRIEVE_SUCCESS on thread: " + Thread.currentThread().getName());
+                break;
+            case Constants.WORD_RETRIEVE_FAIL:
+                Log.d(TAG," handleMessage : WORD_RETRIEVE_Fail on thread: " + Thread.currentThread().getName());
+                break;
+            case Constants.WORD_INSERT_SUCCESS:
+                Log.d(TAG," handleMessage : WORD_insert success on thread: " + Thread.currentThread().getName());
+                break;
+            case Constants.WORD_INSERT_FAIL:
+                Log.d(TAG," handleMessage : WORD_insert fail on thread: " + Thread.currentThread().getName());
+                break;
+            case Constants.WORD__DELETE_SUCCESS:
+                Log.d(TAG," handleMessage : WORD_DELETE_SUCCESS on thread: " + Thread.currentThread().getName());
+                break;
+            case Constants.WORD__DELETE_FAIL:
+                Log.d(TAG," handleMessage : WORD__DELETE_FAIL on thread: " + Thread.currentThread().getName());
+                break;
+        }
+
+
+        return false;
+    }
+/**
      * select all note from database and set to ls
      * use for loop to add into listNote.
      * We must add all item in ls into listNote then adapter can update
@@ -430,28 +477,4 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 //
 //        adapterAddDailyMovements.notifyDataSetChanged();
 //    }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

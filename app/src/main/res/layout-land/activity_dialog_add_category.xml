@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.imagine.mohamedtaha.store.dialog.DialogAddCategory">
+
+    <TextView
+        android:id="@+id/TVTitle"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopTen"
+        android:layout_marginEnd="@dimen/margingRight"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/title_add_category"
+        android:textColor="#efe304"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ETNameCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:hint="@string/name_category"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toRightOf="@+id/ETNaturalGategory"
+        app:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/TVTitle" />
+
+    <EditText
+        android:id="@+id/ETNaturalGategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:hint="@string/natural_category"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/ETNameCategory" />
+
+    <EditText
+        android:id="@+id/EtNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/notes"
+        android:maxLines="3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_creator="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <Button
+        android:id="@+id/BTAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BtAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BTDelete"
+        app:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <Button
+        android:id="@+id/BTDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BTDelete"
+        app:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="365dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

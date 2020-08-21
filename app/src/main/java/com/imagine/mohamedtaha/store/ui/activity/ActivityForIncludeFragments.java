@@ -16,11 +16,8 @@ import com.imagine.mohamedtaha.store.adapter.CategoryAdapter;
 public class ActivityForIncludeFragments extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_for_include_fragments);
-
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
 
         CategoryAdapter adapter = new CategoryAdapter(this,getSupportFragmentManager());
@@ -36,23 +33,16 @@ public class ActivityForIncludeFragments extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
-
         return true;
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-
         MenuItem menuItemAddData = menu.findItem(R.id.add_data);
         MenuItem menuItemActionSearch = menu.findItem(R.id.action_search);
-
         menuItemAddData.setVisible(false);
         menuItemActionSearch.setVisible(false);
-
         return super.onPrepareOptionsMenu(menu);
-
-
-
     }
 
     @Override
@@ -72,26 +62,3 @@ public class ActivityForIncludeFragments extends AppCompatActivity {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

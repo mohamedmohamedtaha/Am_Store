@@ -1,4 +1,4 @@
-package com.imagine.mohamedtaha.store.fragments;
+package com.imagine.mohamedtaha.store.ui.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -107,7 +107,7 @@ public class AddConvertStoreFragment extends Fragment {
                     bundle.putInt(ID_STORE, itemsStore.getId());
                     bundle.putString(TYPE_CONVERT_STORE, itemsStore.getConvertTo());
                     bundle.putString(NOTES_STORE, itemsStore.getNotes());
-                    com.imagine.mohamedtaha.store.fragments.AddStoreFragment.EditStoreFragment f = new com.imagine.mohamedtaha.store.fragments.AddStoreFragment.EditStoreFragment();
+                    AddStoresFragment.EditStoreFragment f = new AddStoresFragment.EditStoreFragment();
                     f.setArguments(bundle);
                     f.show(getFragmentManager(),DIALOD_STORE);
                 }

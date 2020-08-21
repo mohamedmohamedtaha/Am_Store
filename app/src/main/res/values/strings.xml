@@ -7,7 +7,7 @@
 
     <!-- TODO: Items for menu -->
     <string name="action_settings" translatable="false">Settings</string>
-    <string name="action_edit" translatable="false">Edit</string>
+    <string name="action_edit" >Edit</string>
 
     <string name="add_data" translatable="false">إضافة البيانات</string>
     <string name="add_stocking_warehouse" translatable="false">ترصيد المستودع</string>
@@ -30,7 +30,7 @@
     <string name="title_empty_view_daily_movements" translatable="false"> قم أولاً بإضافة الأصناف والمخازن والأذونات</string>
     <string name="title_empty_view_daily_movements1" translatable="false">حتى تتمكن من إضافة الحركات اليومية</string>
     <string name="title_empty_view_store" translatable="false">ابدأ بإضافة المخازن</string>
-    <string name="title_empty_view_permission" translatable="false">ابدأ بإضافة انواع الإذونات</string>
+    <string name="title_empty_view_color" >ابدأ بإضافة الألوان</string>
     <string name="title_empty_view_category" translatable="false">ابدأ بإضافة الأصناف </string>
     <string name="title_empty_view_stoke_wearehouse" translatable="false"> حتى تستطيع ترصيد المستودع  </string>
 
@@ -40,7 +40,7 @@
     <string name="add_store" translatable="false">إضافة المخازن</string>
     <string name="add_store_convert" translatable="false">إضافة المخازن المحولة</string>
 
-    <string name="add_permission" translatable="false">إضافة الإذن</string>
+    <string name="add_colors">إضافة الألوان</string>
     <string name="title_add_category" translatable="false">إضافة الأصناف</string>
     <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
     <string name="empty_view_title_text" translatable="false">It\'s a bit lonely here...</string>
@@ -74,17 +74,15 @@
     <string name="update_store" translatable="false">  تم تعديل المخزن بنجاح </string>
     <string name="error_delete_store" translatable="false">  لم يتم حذف المخزن </string>
     <string name="delete_store" translatable="false">  تم حذف المخزن بنجاح </string>
-    <!-- TODO: Page dialog Add  Permission -->
-    <string name="add_permission_titile" translatable="false">إضافة أذن</string>
-    <string name="update_permission_titile" translatable="false">تعديل أذن</string>
-    <string name="type_permission" translatable="false"> نوع الأذن</string>
-
-    <string name="error_save_permission" translatable="false">  لم يتم حفظ الأذن </string>
-    <string name="save_permission" translatable="false">  تم حفظ الأذن بنجاح </string>
-    <string name="error_update_permission" translatable="false">  لم يتم تعديل الأذن </string>
-    <string name="update_permission" translatable="false">  تم تعديل الأذن بنجاح </string>
-    <string name="error_delete_permission" translatable="false">  لم يتم حذف الأذن </string>
-    <string name="delete_permission" translatable="false">  تم حذف الأذن بنجاح </string>
+    <string name="add_color_titile" >Add Color</string>
+    <string name="update_color_titile">Edit color</string>
+    <string name="type_color" > اسم اللون</string>
+    <string name="error_save_color" > does not save color </string>
+    <string name="save_color" > Saved color </string>
+    <string name="error_update_color"> Does not update color </string>
+    <string name="update_color"> Updated color </string>
+    <string name="error_delete_color" > does not delete a color </string>
+    <string name="delete_color" > Delete color </string>
     <!-- TODO: Page dialog Add StokeWearehouse -->
     <string name="first_balance" translatable="false">الرصيد الأول </string>
     <string name="error_first_balance" translatable="false">يجب اختيار الرصيد الأول </string>
@@ -124,7 +122,7 @@
     <string name="delete_daily" translatable="false"> تم مسح الحركة بنجاح </string>
     <string name="error_empty_text" translatable="false">لا يمكن ترك الحقل فارغ أو تكون قمته 0 </string>
     <string name="error_exist_name" translatable="false">تم تسجيل اسم المخزن من قبل </string>
-    <string name="error_exist_permission" translatable="false">تم تسجيل اسم الإذن من قبل </string>
+    <string name="error_exist_color">That color is exist </string>
     <string name="error_exist_category" translatable="false">تم تسجيل اسم الصنف من قبل </string>
     <string name="this_store_used" translatable="false">هذا المخزن مستخدم ولا يمكن مسحه</string>
     <string name="this_store_not_updated" translatable="false">هذا المخزن مستخدم ولا يمكن تعديله</string>

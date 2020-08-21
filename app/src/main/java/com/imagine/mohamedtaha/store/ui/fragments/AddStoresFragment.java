@@ -1,4 +1,4 @@
-package com.imagine.mohamedtaha.store.fragments;
+package com.imagine.mohamedtaha.store.ui.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -37,9 +37,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class AddStoreFragment extends Fragment {
+public class AddStoresFragment extends Fragment {
 
-    public AddStoreFragment() {
+    public AddStoresFragment() {
         // Required empty public constructor
     }
 

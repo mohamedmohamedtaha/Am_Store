@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/icons"
-    tools:context="com.imagine.mohamedtaha.store.fragments.EditDailyMovementsFragment">
+    tools:context=".ui.fragments.FragmentEditDailyMovementsF">
 
     <RelativeLayout
         android:layout_width="match_parent"

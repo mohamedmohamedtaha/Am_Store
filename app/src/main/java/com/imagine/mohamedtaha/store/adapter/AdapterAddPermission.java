@@ -9,8 +9,7 @@ import android.widget.TextView;
 
 import com.imagine.mohamedtaha.store.data.ItemsStore;
 import com.imagine.mohamedtaha.store.R;
-
-import org.w3c.dom.Text;
+import com.imagine.mohamedtaha.store.model.TableColors;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,22 +22,22 @@ import java.util.Locale;
  */
 
 public class AdapterAddPermission extends BaseAdapter {
-    private  ArrayList<ItemsStore> itemsPermissions;
+    private  ArrayList<TableColors> itemsColors;
     private final LayoutInflater inflater;
 
-    public AdapterAddPermission(Context context,ArrayList<ItemsStore> itemsPermissions) {
+    public AdapterAddPermission(Context context,ArrayList<TableColors> itemsColors) {
         this.inflater = LayoutInflater.from(context);
-        this.itemsPermissions = itemsPermissions;
+        this.itemsColors = itemsColors;
     }
 
     @Override
     public int getCount() {
-        return itemsPermissions.size();
+        return itemsColors.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return itemsPermissions.get(position);
+        return itemsColors.get(position);
     }
 
     @Override
@@ -81,31 +80,31 @@ public class AdapterAddPermission extends BaseAdapter {
 
 
         //Read the Store attributes from the Cursor for the current Store
-        String idStore = String.valueOf(itemsPermissions.get(position).getId());
-        String typeStore = itemsPermissions.get(position).getNamePermission();
-        String  dateStore = String.valueOf(itemsPermissions.get(position).getCreatedDate());
-        String  timeStore = itemsPermissions.get(position).getCreatedTime();
+        String idStore = String.valueOf(itemsColors.get(position).getId_color());
+        String typeStore = itemsColors.get(position).getName_color();
+        String  dateStore = String.valueOf(itemsColors.get(position).getCreatedDate());
+        String  timeStore = itemsColors.get(position).getCreatedTime();
 
 
         //Update the TextView with the attributes for the current store
         TVIDStore.setText(idStore);
         TVTypeStore.setText(typeStore);
        // TVDateStore.setText(dateStore);
-        TVTitle.setText(R.string.type_permission);
+        TVTitle.setText(R.string.type_color);
         TVDateStore.setText(dateStore);
         TVTimeStore.setText(timeStore);
 
 
         return listItemView;    }
-    public void swapData(Collection<ItemsStore> itemsStoreCollections){
-        this.itemsPermissions.clear();
-        this.itemsPermissions.addAll(itemsStoreCollections);
+    public void swapData(Collection<TableColors> itemsStoreCollections){
+        this.itemsColors.clear();
+        this.itemsColors.addAll(itemsStoreCollections);
         notifyDataSetChanged();
 
     }
-    public void setFilter(ArrayList<ItemsStore> itemStoke){
-        itemsPermissions = new ArrayList<>();
-        itemsPermissions.addAll(itemStoke);
+    public void setFilter(ArrayList<TableColors> itemStoke){
+        itemsColors = new ArrayList<>();
+        itemsColors.addAll(itemStoke);
         notifyDataSetChanged();
     }
 }
