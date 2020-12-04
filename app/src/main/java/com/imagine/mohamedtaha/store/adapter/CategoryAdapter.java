@@ -10,6 +10,7 @@ import com.imagine.mohamedtaha.store.R;
 import com.imagine.mohamedtaha.store.ui.fragments.AddColorsFragment;
 import com.imagine.mohamedtaha.store.ui.fragments.AddStoresFragment;
 import com.imagine.mohamedtaha.store.ui.fragments.AddCategoriesFragment;
+import com.imagine.mohamedtaha.store.ui.fragments.jobs.JobsFragment;
 
 /**
  * Created by MANASATT on 25/11/17.
@@ -30,6 +31,8 @@ public class CategoryAdapter extends FragmentPagerAdapter {
             return new AddCategoriesFragment();
         }else if (position == 1){
             return new AddStoresFragment();
+        }else if (position == 2){
+            return new JobsFragment();
         }else
         {
             return new AddColorsFragment();
@@ -38,7 +41,7 @@ public class CategoryAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -47,6 +50,8 @@ public class CategoryAdapter extends FragmentPagerAdapter {
             return mContext.getString(R.string.add_category);
         }else if (position == 1){
             return mContext.getString(R.string.add_store);
+        }else if (position == 2){
+            return mContext.getString(R.string.add_jobs);
         }else {
             return mContext.getString(R.string.add_colors);
 

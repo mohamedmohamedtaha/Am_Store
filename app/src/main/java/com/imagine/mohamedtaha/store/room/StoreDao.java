@@ -1,6 +1,7 @@
 package com.imagine.mohamedtaha.store.room;
 
 import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -40,16 +41,21 @@ public interface StoreDao {
     @Query("UPDATE TableJobs SET title_position = :title_position, notes = :notes WHERE id_jobs = :id_jobs")
     void updateJobs(int id_jobs, String title_position, String notes);
 
+//    @Query("SELECT * FROM TableJobs")
+//    LiveData<List<TableJobs>> getAllJobs();
+
     @Query("SELECT * FROM TableJobs")
-    LiveData<List<TableJobs>> getAllJobs();
+    DataSource.Factory<Integer,TableJobs> getAllJobs();
+
 
     @Query("DELETE FROM TableJobs WHERE id_jobs = :id_jobs")
     void deleteJobsById(int id_jobs);
 
     //--------------------- End Table Jobs ------------------------------
+
     //--------------------- Start Table Employees ------------------------------
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertJobs(TableEmployees... tableEmployees);
+    void insertEmployees(TableEmployees... tableEmployees);
 
     @Query("UPDATE TableEmployees SET id_permission = :id_permission, id_jobs = :id_jobs, name_employee = :name_employee," +
             "phone_employee = :phone_employee ,address_employee = :address_employee ,email_employees = :email_employees," +
@@ -62,13 +68,11 @@ public interface StoreDao {
 
     @Query("DELETE FROM TableEmployees WHERE id_employee = :id_employee")
     void deleteEmployeesById(int id_employee);
-
-    //--------------------- End Table Employees ------------------------------
-
-    //--------------------- Relationship TableEmployees with TableJobs with TablePermission ------------------------------
+    //--------------------- Relationship TableEmployees with TableJobs ------------------------------
     @Transaction
     @Query("SELECT * FROM TableEmployees")
     public LiveData<List<EmployeesWithJobs>> getEmployeesWithJobs();
+    //--------------------- End Table Employees ------------------------------
 
 
     //--------------------- Start Table Ads ------------------------------

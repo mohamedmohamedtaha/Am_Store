@@ -200,7 +200,7 @@ public class BackupData {
 
             //set view for dialog
             builder.setView(convertView);
-            builder.setTitle("اختيار ملف ").setIcon(R.mipmap.ic_launcher);
+            builder.setTitle("اختيار ملف ").setIcon(R.mipmap.ic_launcher_am);
             final AlertDialog alert = builder.create();
 
             ListView lv =(ListView)convertView.findViewById(R.id.lv_backup);
@@ -216,7 +216,7 @@ public class BackupData {
             alert.show();
         }else {
             final AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.AppCompatAlertDialogStyle);
-            builder.setTitle("مسح").setIcon(R.mipmap.ic_launcher).setMessage("لا توجد نسخة أحتياطية إلى الان");
+            builder.setTitle("مسح").setIcon(R.mipmap.ic_launcher_am).setMessage("لا توجد نسخة أحتياطية إلى الان");
             builder.show();
         }
     }

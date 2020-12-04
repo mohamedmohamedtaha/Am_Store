@@ -19,6 +19,7 @@
            <TextView
                android:id="@+id/TVType_store"
                style="@style/CardViewStyleDataForStore"
+
                />
            <TextView
                android:id="@+id/titleName"
@@ -61,8 +62,5 @@
         android:id="@+id/Image_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_more_vert"
-
-        />
-
+        android:src="@drawable/ic_action_more_vert" />
 </androidx.cardview.widget.CardView>

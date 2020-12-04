@@ -6,5 +6,7 @@
 
     <dimen name="paddingLft">16dp</dimen>
     <dimen name="margingRight">30dp</dimen>
+    <dimen name="font_size_xl">20sp</dimen>
+    <dimen name="size_splash_image">200dp</dimen>
 
 </resources>

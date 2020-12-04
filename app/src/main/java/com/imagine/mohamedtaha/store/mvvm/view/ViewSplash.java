@@ -4,5 +4,5 @@ import android.view.animation.Animation;
 
 public interface ViewSplash  {
     void goToMainActivity();
-    void startAnimation(Animation animation);
+    void startAnimation();
 }

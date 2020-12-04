@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.imagine.mohamedtaha.store.model.TableJobs" />
+
+        <import type="androidx.paging.PagedList" />
+
+        <variable
+            name="jobs"
+            type="PagedList&lt;TableJobs>" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.jobs.JobsFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_show_jobs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:jobsList="@{jobs}" />
+
+        <RelativeLayout
+            android:id="@+id/empty_view_fragment_add_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/empty_image_fragment_add_job"
+                style="@style/EmptyViewImage"
+                android:contentDescription="@string/empty_store" />
+
+            <TextView
+                android:id="@+id/empty_text_fragment_add_job"
+                style="@style/EmptyViewTextViewMain"
+                android:layout_below="@+id/empty_image_fragment_add_job"
+                android:text="@string/title_empty_daily_movements" />
+
+            <TextView
+                android:id="@+id/empty_subtitle_text_fragment_add_color"
+                style="@style/EmptyViewTextViewSecond"
+                android:layout_below="@+id/empty_text_fragment_add_job"
+                android:text="@string/start_add_job" />
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_actions_spacing"
+            android:layout_marginBottom="@dimen/fab_actions_spacing"
+            android:contentDescription="@string/add_jobs"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_add"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

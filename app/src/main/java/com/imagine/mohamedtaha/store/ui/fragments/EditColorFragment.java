@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.imagine.mohamedtaha.store.R;
 import com.imagine.mohamedtaha.store.data.TaskDbHelper;
+import com.imagine.mohamedtaha.store.databinding.FragmentEditColorBinding;
 import com.imagine.mohamedtaha.store.model.TableColors;
 import com.imagine.mohamedtaha.store.threading.Constants;
 import com.imagine.mohamedtaha.store.threading.MyThread;
@@ -34,9 +37,10 @@ import static com.imagine.mohamedtaha.store.ui.fragments.AddColorsFragment.NOTE_
 
 
 public class EditColorFragment extends DialogFragment implements DialogInterface.OnClickListener, Handler.Callback {
-    private EditText ETNameColor, ETNotesColor;
-    private Button BTAddOrUpdateColor, BTDeleteColor;
-    private TextView TVTitleColor;
+    private FragmentEditColorBinding fragmentEditColorBinding;
+  //  private EditText ETNameColor, ETNotesColor;
+    //private Button BTAddOrUpdateColor, BTDeleteColor;
+    //private TextView TVTitleColor;
     Bundle intent;
     TaskDbHelper dbHelper;
     AlertDialog dialog;
@@ -44,39 +48,48 @@ public class EditColorFragment extends DialogFragment implements DialogInterface
     private MyThread myThread = null;
     private Handler mainHandler = null;
     private static final String TAG = "MyThread";
+    View view;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_edit_store, null);
-        TextInputLayout ETTypeStoreMaterial = (TextInputLayout) view.findViewById(R.id.ETTypeStoreMaterial);
-        TVTitleColor = (TextView) view.findViewById(R.id.TVTitleStore);
-        ETNameColor = (EditText) view.findViewById(R.id.ETTypeStoreStore);
-        ETNotesColor = (EditText) view.findViewById(R.id.EtNotesStore);
-        BTAddOrUpdateColor = (Button) view.findViewById(R.id.BTAddStore);
-        BTDeleteColor = (Button) view.findViewById(R.id.BTDeleteStore);
+        fragmentEditColorBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()),R.layout.fragment_edit_color,null
+        ,false);
+        view = fragmentEditColorBinding.getRoot();
+
+
+        //View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_edit_color, null);
+//        TextInputLayout ETTypeStoreMaterial = (TextInputLayout) view.findViewById(R.id.ETTypeStoreMaterial);
+//        TVTitleColor = (TextView) view.findViewById(R.id.TVTitleStore);
+//        ETNameColor = (EditText) view.findViewById(R.id.ETTypeStoreStore);
+//        ETNotesColor = (EditText) view.findViewById(R.id.EtNotesStore);
+//        BTAddOrUpdateColor = (Button) view.findViewById(R.id.BTAddStore);
+//        BTDeleteColor = (Button) view.findViewById(R.id.BTDeleteStore);
         dbHelper = new TaskDbHelper(getContext());
         intent = getArguments();
-        TVTitleColor.setText(getString(R.string.add_color_titile));
-        ETTypeStoreMaterial.setHint(getString(R.string.type_color));
+
+        fragmentEditColorBinding.tvTitleEditColorFragment.setText(getString(R.string.add_color_titile));
+        fragmentEditColorBinding.tilTypeColorMaterialEditColorFragment.setHint(getString(R.string.type_color));
         mainHandler = new Handler(this);
 
         boolean saveState = true;
         if (intent != null) {
             saveState = false;
-            BTAddOrUpdateColor.setText(getString(R.string.action_edit));
-            TVTitleColor.setText(getString(R.string.update_color_titile));
-            BTDeleteColor.setVisibility(View.VISIBLE);
-            ETNameColor.setText(intent.getString(NAME_COLOR));
-            ETNotesColor.setText(intent.getString(NOTE_COLOR));
+
+            fragmentEditColorBinding.btAddColorEditColorFragment.setText(getString(R.string.action_edit));
+            fragmentEditColorBinding.tvTitleEditColorFragment.setText(getString(R.string.update_color_titile));
+
+fragmentEditColorBinding.btDeleteColorEditColorFragment.setVisibility(View.VISIBLE);
+       fragmentEditColorBinding.tvTitleEditColorFragment.setText(intent.getString(NAME_COLOR));
+       fragmentEditColorBinding.etNotesEditColorFragment.setText(intent.getString(NOTE_COLOR));
         }
-        BTAddOrUpdateColor.setOnClickListener(new View.OnClickListener() {
+        fragmentEditColorBinding.btAddColorEditColorFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveStore();
 
             }
         });
-        BTDeleteColor.setOnClickListener(new View.OnClickListener() {
+        fragmentEditColorBinding.btDeleteColorEditColorFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDeleteConfirmationDialog();
@@ -109,18 +122,18 @@ public class EditColorFragment extends DialogFragment implements DialogInterface
     }
 
     public void saveStore() {
-        String nameColor = ETNameColor.getText().toString().trim();
-        String notes = ETNotesColor.getText().toString().trim();
+        String nameColor = fragmentEditColorBinding.etTypeColorEditColorFragment.getText().toString().trim();
+        String notes = fragmentEditColorBinding.etNotesEditColorFragment.getText().toString().trim();
         boolean isExist = dbHelper.isExistNamePErmission(nameColor);
 
         if (intent == null && TextUtils.isEmpty(nameColor) || TextUtils.isEmpty(nameColor)) {
-            ETNameColor.requestFocus();
-            ETNameColor.setError(getString(R.string.error_empty_text));
+            fragmentEditColorBinding.etTypeColorEditColorFragment.requestFocus();
+            fragmentEditColorBinding.etTypeColorEditColorFragment.setError(getString(R.string.error_empty_text));
             return;
         }
         if (isExist == true) {
-            ETNameColor.requestFocus();
-            ETNameColor.setError(getString(R.string.error_exist_color));
+            fragmentEditColorBinding.etTypeColorEditColorFragment.requestFocus();
+            fragmentEditColorBinding.etTypeColorEditColorFragment.setError(getString(R.string.error_exist_color));
             return;
         }
         if (intent == null) {
@@ -185,8 +198,8 @@ public class EditColorFragment extends DialogFragment implements DialogInterface
 
     public void deleteStore() {
         if (intent != null) {
-            String namePermission = ETNameColor.getText().toString();
-            String notes = ETNotesColor.getText().toString();
+            String namePermission = fragmentEditColorBinding.etTypeColorEditColorFragment.getText().toString();
+            String notes = fragmentEditColorBinding.etNotesEditColorFragment.getText().toString();
             TableColors tableColors = new TableColors();
             tableColors.setId_color(intent.getInt(ID_COLOR));
             tableColors.setName_color(namePermission);
@@ -198,7 +211,6 @@ public class EditColorFragment extends DialogFragment implements DialogInterface
                 Toast.makeText(getContext(), getString(R.string.this_permission_used), Toast.LENGTH_SHORT).show();
                 return;
             }
-
             if (tableColors != null) {
                 Message message = Message.obtain(null, Constants.COLOR_DELETE);
                 Bundle bundle = new Bundle();
@@ -207,14 +219,12 @@ public class EditColorFragment extends DialogFragment implements DialogInterface
                 myThread.sendMessageToBackgroundThread(message);
                 dialog.dismiss();
 
-//
 //                dbHelper.deletePermission(itemDeletePermision);
 //                Toast.makeText(getContext(), getString(R.string.delete_permission), Toast.LENGTH_LONG).show();
 //                dialog.dismiss();
 //                alertDialogDelete.dismiss();
 
                 // getActivity().finish();
-
             }
 //            else {
 //                Toast.makeText(getContext(), getString(R.string.error_delete_permission), Toast.LENGTH_LONG).show();
@@ -223,7 +233,6 @@ public class EditColorFragment extends DialogFragment implements DialogInterface
             // Toast.makeText(getActivity(), "Not Data For Deleted", Toast.LENGTH_LONG).show();
             return;
         }
-
     }
 
     private void showDeleteConfirmationDialog() {

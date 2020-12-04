@@ -180,16 +180,16 @@ public class AddConvertStoreFragment extends Fragment {
             @NonNull
             @Override
             public Dialog onCreateDialog(Bundle savedInstanceState) {
-                View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_edit_store,null);
-                TextInputLayout ETTypeStoreMaterial = (TextInputLayout)view.findViewById(R.id.ETTypeStoreMaterial);
-                TVTitleStore = (TextView)view.findViewById(R.id.TVTitleStore);
-                ETTypeStore = (EditText)view.findViewById(R.id.ETTypeStoreStore);
-                ETNotes = (EditText)view.findViewById(R.id.EtNotesStore);
-                BTAddOrUpdate = (Button)view.findViewById(R.id.BTAddStore);
-                BTDelete = (Button)view.findViewById(R.id.BTDeleteStore);
+                View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_edit_color,null);
+//                TextInputLayout ETTypeStoreMaterial = (TextInputLayout)view.findViewById(R.id.ETTypeStoreMaterial);
+//                TVTitleStore = (TextView)view.findViewById(R.id.TVTitleStore);
+//                ETTypeStore = (EditText)view.findViewById(R.id.ETTypeStoreStore);
+//                ETNotes = (EditText)view.findViewById(R.id.EtNotesStore);
+//                BTAddOrUpdate = (Button)view.findViewById(R.id.BTAddStore);
+//                BTDelete = (Button)view.findViewById(R.id.BTDeleteStore);
                 dbHelper = new TaskDbHelper(getContext());
                 intent = getArguments();
-                ETTypeStoreMaterial.setHint(getString(R.string.type_store));
+               // ETTypeStoreMaterial.setHint(getString(R.string.type_store));
 
 
                 boolean saveState = true;

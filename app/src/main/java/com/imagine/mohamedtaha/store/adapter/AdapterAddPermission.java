@@ -69,7 +69,7 @@ public class AdapterAddPermission extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
         if (listItemView == null){
-            listItemView = inflater.inflate(R.layout.custom_store_listview,parent,false);
+            listItemView = inflater.inflate(R.layout.custom_color,parent,false);
         }
         //Find individual views that we want to modify in the list item layout
         TextView TVTypeStore = (TextView)listItemView.findViewById(R.id.TVType_store);

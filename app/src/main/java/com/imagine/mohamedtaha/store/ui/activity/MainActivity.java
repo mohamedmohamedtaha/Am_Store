@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
+
         getSupportLoaderManager().initLoader(Daily_LOADER,null,this);
         final  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

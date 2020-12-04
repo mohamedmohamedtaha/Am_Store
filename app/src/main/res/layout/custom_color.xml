@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="color"
+            type="com.imagine.mohamedtaha.store.model.TableColors" />
+        <variable
+            name="clickRecyclerView"
+            type="com.imagine.mohamedtaha.store.threading.ClickRecyclerView" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/id_conteaner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/icons"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="10dp"
+        android:onClick="@{() -> clickRecyclerView.inflateViewColorFragment(color)}">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/TVType_store"
+                    style="@style/CardViewStyleDataForStore"
+                    android:text="@{color.name_color}" />
+
+                <TextView
+                    android:id="@+id/titleName"
+                    style="@style/CardViewStyleMain"
+                    android:text="@string/type_store" />
+
+                <TextView
+                    android:id="@+id/TVID"
+                    style="@style/CardViewStyleData"
+                    android:text="@{String.valueOf(color.id_color)}" />
+
+                <TextView
+                    android:id="@+id/idStore"
+                    style="@style/CardViewStyleMain"
+                    android:text="@string/m_store" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/TVDdate_store"
+                    style="@style/CardViewStyleData"
+                    android:paddingTop="10dp"
+
+                    android:text="@{color.createdDate}" />
+
+                <TextView
+                    android:id="@+id/TVTime_store"
+                    style="@style/CardViewStyleData"
+                    android:paddingTop="10dp"
+
+                    android:text="@{color.createdTime}" />
+
+                <TextView
+                    android:id="@+id/textDate"
+                    style="@style/CardViewStyleMain"
+                    android:paddingTop="10dp"
+                    android:text="@string/data_store" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <ImageView
+            android:id="@+id/Image_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_more_vert" />
+    </androidx.cardview.widget.CardView>
+</layout>

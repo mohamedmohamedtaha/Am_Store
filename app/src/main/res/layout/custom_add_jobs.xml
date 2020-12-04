@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="jobs"
+            type="com.imagine.mohamedtaha.store.model.TableJobs" />
+        <variable
+            name="clickRecyclerView"
+            type="com.imagine.mohamedtaha.store.threading.ClickRecyclerViewTableJobs" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/id_conteaner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/icons"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="10dp"
+        android:onClick="@{() -> clickRecyclerView.inflateViewJobsFragment(jobs)}">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tv_title_position"
+                    style="@style/CardViewStyleDataForStore"
+                    android:text="@{jobs.title_position}" />
+
+                <TextView
+                    android:id="@+id/titleName"
+                    style="@style/CardViewStyleMain"
+                    android:text="@string/title_position" />
+
+                <TextView
+                    android:id="@+id/tv_id_jobs"
+                    style="@style/CardViewStyleData"
+                    android:text="@{String.valueOf(jobs.id_jobs)}" />
+
+                <TextView
+                    android:id="@+id/idJobs"
+                    style="@style/CardViewStyleMain"
+                    android:text="@string/job_id" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/Ttv_date_add_jobs"
+                    style="@style/CardViewStyleData"
+                    android:paddingTop="10dp"
+
+                    android:text="@{jobs.createdDate}" />
+
+                <TextView
+                    android:id="@+id/tv_time_add_jobs"
+                    style="@style/CardViewStyleData"
+                    android:paddingTop="10dp"
+                    android:text="@{jobs.createdTime}" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/CardViewStyleMain"
+                    android:paddingTop="10dp"
+                    android:text="@string/last_edit" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <ImageView
+            android:id="@+id/Image_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_more_vert" />
+    </androidx.cardview.widget.CardView>
+</layout>

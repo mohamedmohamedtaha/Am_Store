@@ -10,9 +10,8 @@ import com.imagine.mohamedtaha.store.model.TablePermission;
 import java.util.List;
 
 public class EmployeesWithJobs {
-    @Embedded public TableEmployees tableEmployees;
-    @Relation( parentColumn = "id_employee", entityColumn = "id_jobs")
-    public List<TableJobs>tableJobsList;
-    @Relation( parentColumn = "id_employee", entityColumn = "id_permission")
-    public List<TablePermission>tablePermissionList;
+    @Embedded
+    public TableJobs tableJobs;
+    @Relation(parentColumn = "id_jobs", entityColumn = "id_employee")
+    public List<TableEmployees> tableEmployeesList;
 }

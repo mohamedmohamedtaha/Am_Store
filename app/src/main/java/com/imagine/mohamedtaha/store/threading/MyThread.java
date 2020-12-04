@@ -30,6 +30,8 @@ public class MyThread extends Thread {
 
     @Override
     public void run() {
+        Log.e(TAG, "run " );
+
         if (isRunning) {
             Looper.prepare();
             myHandler = new MyThreadHandler(Looper.myLooper());
@@ -43,9 +45,12 @@ public class MyThread extends Thread {
     }
 
     public void sendMessageToBackgroundThread(Message message) {
+        Log.e(TAG, "SsendMessageToBackgroundThread " );
         while (true) {
             try {
-                myHandler.sendMessage(message);
+                if (message != null){
+                    myHandler.sendMessage(message);
+                }
                 break;
             } catch (NullPointerException e) {
                 Log.e(TAG, "Send message to background thread: Null Pointer: " + e.getMessage());
@@ -53,6 +58,8 @@ public class MyThread extends Thread {
                     Thread.sleep(100);
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
+                    Log.e(TAG, "e1: " + e1.getMessage());
+
                 }
             }
         }
@@ -112,10 +119,11 @@ public class MyThread extends Thread {
                     break;}
                 case Constants.WORD_RETRIEVE:{
                     Log.d(TAG, " handleMessage : retreiving word on thread: " + Thread.currentThread().getName());
-                    String query = msg.getData().getString("query");
+                   // String query = msg.getData().getString("query");
                     Message message = null;
                     ArrayList<TableColors> retrive = new ArrayList<>(retriveColor());
                     if (retrive.size() > 0){
+                        Log.d(TAG, " retrive.size : " + retrive.size() + " : "+ Thread.currentThread().getName());
                         message = Message.obtain(mainHandler, Constants.WORD_RETRIEVE_SUCCESS);
                         Bundle bundle =  new Bundle();
                         bundle.putParcelableArrayList("colors",retrive);
@@ -123,6 +131,8 @@ public class MyThread extends Thread {
 
                     }else {
                         message = Message.obtain(mainHandler, Constants.WORD_RETRIEVE_FAIL);
+                        Log.d(TAG, " retrive.size : " + retrive.size() + " : " + Thread.currentThread().getName());
+
                     }
                     message.sendToTarget();
                     break;}

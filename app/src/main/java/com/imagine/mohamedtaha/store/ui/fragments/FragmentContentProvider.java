@@ -96,7 +96,7 @@ public class FragmentContentProvider extends DialogFragment implements DialogInt
             }
         });
         builder = new AlertDialog.Builder(getActivity());
-        builder.setView(view).setIcon(R.drawable.logoysyp);
+        builder.setView(view).setIcon(R.mipmap.ic_launcher_am);
         dialog= builder.create();
         dialog.show();
         return dialog;

@@ -1,7 +1,11 @@
 package com.imagine.mohamedtaha.store.model;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.util.Objects;
 
 @Entity(tableName = "TableJobs")
 public class TableJobs {
@@ -12,8 +16,7 @@ public class TableJobs {
     private String createdDate;
     private String createdTime;
 
-    public TableJobs(int id_jobs, String title_position, String notes, String createdDate, String createdTime) {
-        this.id_jobs = id_jobs;
+    public TableJobs(String title_position, String notes, String createdDate, String createdTime) {
         this.title_position = title_position;
         this.notes = notes;
         this.createdDate = createdDate;
@@ -58,5 +61,32 @@ public class TableJobs {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public static DiffUtil.ItemCallback<TableJobs>tableJobsItemCallback = new DiffUtil.ItemCallback<TableJobs>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull TableJobs oldItem, @NonNull TableJobs newItem) {
+            return oldItem.getId_jobs() == newItem.getId_jobs();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull TableJobs oldItem, @NonNull TableJobs newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }else {
+            TableJobs tableJobs = (TableJobs)o;
+            return tableJobs.getId_jobs() == this.getId_jobs();
+        }
+            }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id_jobs, title_position, notes, createdDate, createdTime);
     }
 }

@@ -24,11 +24,10 @@ public class StoreRepostory {
     public StoreRepostory(Application application) {
         StoreAppDatabase database = StoreAppDatabase.getInstance(application);
         storeDao = database.storeDao();
-        listLiveDataTableJobs = storeDao.getAllJobs();
+        //listLiveDataTableJobs = storeDao.getAllJobs();
         listLiveDataTablePermission = storeDao.getAllPermission();
         listLiveDataTableEmployees = storeDao.getAllEmployees();
         listLiveDataTableEmployeesWithJobs = storeDao.getEmployeesWithJobs();
-
     }
 
     public static StoreRepostory getInstance(Application application) {

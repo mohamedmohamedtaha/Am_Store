@@ -1,0 +1,72 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/icons"
+        android:orientation="vertical"
+        tools:context=".ui.fragments.EditColorFragment">
+
+        <RelativeLayout
+            android:id="@+id/layout_title_edit_color_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_title">
+
+            <ImageView
+                android:id="@+id/image_title_edit_color_fragment"
+                style="@style/ImageViewTitle" />
+
+            <TextView
+                android:id="@+id/tv_title_edit_color_fragment"
+                style="@style/TextViewTitle"
+                android:text="@string/add_store_titile"
+
+                />
+        </RelativeLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_type_color_material_edit_color_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_type_color_edit_color_fragment"
+                style="@style/EditTextFragmentTextFirst" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_notes_material_edit_color_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_notes_edit_color_fragment"
+                style="@style/EditTextFragmentTextSecond"
+                android:hint="@string/notes" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bt_delete_color_edit_color_fragment"
+                style="@style/ButtonFragment"
+                android:text="@string/BTDelete"
+                android:visibility="gone"
+
+                />
+
+            <Button
+                android:id="@+id/bt_add_color_edit_color_fragment"
+                style="@style/ButtonFragment"
+                android:text="@string/BtAdd" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

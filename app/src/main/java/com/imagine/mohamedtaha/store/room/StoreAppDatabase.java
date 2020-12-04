@@ -28,6 +28,9 @@ import com.imagine.mohamedtaha.store.model.TableSupplierMovement;
 import com.imagine.mohamedtaha.store.model.TableTargetAds;
 import com.imagine.mohamedtaha.store.model.TableCategories;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Database(entities = {TableAds.class, TableColors.class, TableCoupons.class, TableCustomers.class
 , TableEmployees.class, TableFeedbacks.class, TableJobs.class, TableOrders.class, TablePayments.class
 , TablePermission.class, TablePlatformAds.class, TableProducts.class, TableStatusOrders.class,
@@ -35,6 +38,8 @@ import com.imagine.mohamedtaha.store.model.TableCategories;
 public abstract class StoreAppDatabase extends RoomDatabase {
     private static final String TAG = "StoreAppDatabase";
     private static final String DATABASE_NAME = "store";
+    public static final int NUMBER_OF_THREADS = 4;
+    public static final ExecutorService writeExecuter = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
     private static StoreAppDatabase mInstance;
     public abstract StoreDao storeDao();
     public static StoreAppDatabase getInstance(Context context){
